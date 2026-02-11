@@ -100,7 +100,9 @@
       </div>
     </header>
     <!-- Start Banner Section -->
-    <section class="w-11/12 mx-auto flex flex-col-reverse md:flex-row items-center gap-10 py-4">
+    <section
+      class="w-11/12 mx-auto flex flex-col-reverse md:flex-row items-center gap-10 py-4"
+    >
       <div class="flex-1 space-y-3 text-center md:text-left">
         <h1 class="text-4xl font-bold">
           <span class="text-blue-400">English</span> is Easy!
@@ -111,8 +113,16 @@
           অন্য একটি Level এ
         </p>
         <div class="flex gap-2 flex-col md:w-8/12">
-          <input class="rounded-sm border border-gray-300 p-2" type="text" placeholder="Enter Your Name" />
-          <input class="rounded-sm border border-gray-300 p-2" type="password" placeholder="Enter Your Password" />
+          <input
+            class="rounded-sm border border-gray-300 p-2"
+            type="text"
+            placeholder="Enter Your Name"
+          />
+          <input
+            class="rounded-sm border border-gray-300 p-2"
+            type="password"
+            placeholder="Enter Your Password"
+          />
           <div class="flex items-start">
             <button class="btn btn-primary">Get Started</button>
           </div>
@@ -123,13 +133,66 @@
       </div>
     </section>
     <!-- Start Session Level Section -->
-     <section class="py-4">
-        <h2 class="text-2xl md:text-4xl text-center font-bold"><span class="text-blue-400">Let's</span> Learn Vocabularies</h2>
-        <div id="level-container" class="w-8/12 mx-auto mt-4 flex gap-4 items-center flex-wrap justify-center">
+    <section class="py-4">
+      <h2 class="text-2xl md:text-4xl text-center font-bold">
+        <span class="text-blue-400">Let's</span> Learn Vocabularies
+      </h2>
+      <div
+        id="level-container"
+        class="mt-4 flex gap-4 items-center flex-wrap justify-center"
+      ></div>
+    </section>
+    <!-- Lession Area Start -->
+    <section class="py-4">
+      <div class="w-11/12 mx-auto bg-[#F8F8F8] rounded-sm p-3">
+        <div class="space-y-2">
+          <p class="font-bangla text-gray-400 text-sm text-center">
+            আপনি এখনো কোন Lesson Select করেন নি !
+          </p>
+          <h2 class="font-bangla text-center text-2xl font-semibold">
+            একটি Lesson Select করুন।
+          </h2>
         </div>
-     </section>
-
-     <!-- Load JS  -->
-      <script src="./js/index.js"></script>
+      </div>
+    </section>
+    <!-- According Section Start -->
+    <section class="w-11/12 mx-auto py-10">
+      <div class="space-y-4">
+        <div class="mb-10">
+            <h2 class="text-center text-4xl font-bold"><span class="text-blue-400">Frequently </span>Asked Questions</h2>
+        </div>
+      <div class="collapse collapse-plus bg-base-100 border border-base-300 bg-[#F8F8F8]">
+        <input type="radio" name="my-accordion-3" checked="checked" />
+        <div class="collapse-title font-semibold">
+         1. How do I create an account?
+        </div>
+        <div class="collapse-content text-sm">
+        Click the "Sign Up" button in the top right corner and follow the
+          registration process.
+        </div>
+      </div>
+      <div class="collapse collapse-plus bg-base-100 border border-base-300 bg-[#F8F8F8]">
+        <input type="radio" name="my-accordion-3" />
+        <div class="collapse-title font-semibold">
+         2. I forgot my password. What should I do?
+        </div>
+        <div class="collapse-content text-sm">
+          Click on "Forgot Password" on the login page and follow the
+          instructions sent to your email.
+        </div>
+      </div>
+      <div class="collapse collapse-plus bg-base-100 border border-base-300 bg-[#F8F8F8]">
+        <input type="radio" name="my-accordion-3" />
+        <div class="collapse-title font-semibold">
+         3. How do I update my profile information?
+        </div>
+        <div class="collapse-content text-sm">
+          Go to "My Account" settings and select "Edit Profile" to make changes.
+        </div>
+      </div>
+      </div>
+    </section>
+    <!-- Load JS  -->
+    <script src="./js/index.js"></script>
   </body>
 </html>
