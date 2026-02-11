@@ -22,8 +22,21 @@ const removeActive = () => {
   const lessionBtn = document.querySelectorAll(".lession-btn");
   lessionBtn.forEach((btn) => btn.classList.remove("active"));
 };
+
+// Manage Spinner 
+const manageSpinner = (status)=> {
+    if(status == true){
+        document.getElementById('spinner').classList.remove('hidden')
+        document.getElementById('word-container').classList.add('hidden')
+    }else{
+       document.getElementById('spinner').classList.add('hidden')
+        document.getElementById('word-container').classList.remove('hidden') 
+    }
+}
+
 // Fetch Word
 const loadWordContainer = (id) => {
+    manageSpinner(true)
   const url = `https://openapi.programming-hero.com/api/level/${id}`;
   fetch(url)
     .then((res) => res.json())
@@ -68,6 +81,7 @@ const displayWord = (words) => {
       `;
     wordContainer.append(card);
   });
+  manageSpinner(false)
 };
 
 //fetch Words Details in Modal
