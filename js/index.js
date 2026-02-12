@@ -12,24 +12,6 @@ function pronounceWord(word) {
   window.speechSynthesis.speak(utterance);
 }
 
-// Load All Lession
-const displayLession = (lessions) => {
-  const levelContainer = document.getElementById("level-container");
-  levelContainer.innerHTML = "";
-  for (let lession of lessions) {
-    const lessionDiv = document.createElement("div");
-    lessionDiv.innerHTML = `
-        <button id="lession-btn-${lession.level_no}" onclick="loadWordContainer(${lession.level_no})" class="btn btn-outline btn-primary lession-btn"><i class="fa-solid fa-book-open"></i>Lession-${lession.level_no}</button>
-        `;
-    levelContainer.append(lessionDiv);
-  }
-};
-// Remove Active Class
-const removeActive = () => {
-  const lessionBtn = document.querySelectorAll(".lession-btn");
-  lessionBtn.forEach((btn) => btn.classList.remove("active"));
-};
-
 // Search Impliment
 document.getElementById("btn-search").addEventListener("click", () => {
     removeActive()
@@ -46,6 +28,11 @@ document.getElementById("btn-search").addEventListener("click", () => {
       displayWord(allWords);
     });
 });
+// Remove Active Class
+const removeActive = () => {
+  const lessionBtn = document.querySelectorAll(".lession-btn");
+  lessionBtn.forEach((btn) => btn.classList.remove("active"));
+};
 
 // Manage Spinner
 const manageSpinner = (status) => {
@@ -55,6 +42,19 @@ const manageSpinner = (status) => {
   } else {
     document.getElementById("spinner").classList.add("hidden");
     document.getElementById("word-container").classList.remove("hidden");
+  }
+};
+
+// Load All Lession
+const displayLession = (lessions) => {
+  const levelContainer = document.getElementById("level-container");
+  levelContainer.innerHTML = "";
+  for (let lession of lessions) {
+    const lessionDiv = document.createElement("div");
+    lessionDiv.innerHTML = `
+        <button id="lession-btn-${lession.level_no}" onclick="loadWordContainer(${lession.level_no})" class="btn btn-outline btn-primary lession-btn"><i class="fa-solid fa-book-open"></i>Lession-${lession.level_no}</button>
+        `;
+    levelContainer.append(lessionDiv);
   }
 };
 
