@@ -7,9 +7,14 @@ const loadSession = () => {
 };
 // Pronounciation Speak
 function pronounceWord(word) {
+  const synth = window.speechSynthesis;
+  synth.cancel()
   const utterance = new SpeechSynthesisUtterance(word);
   utterance.lang = "en-US"; // English
   window.speechSynthesis.speak(utterance);
+  setTimeout(() =>{
+    synth.speak(utterance)
+  }, 200)
 }
 
 // Search Impliment
