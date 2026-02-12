@@ -23,20 +23,37 @@ const removeActive = () => {
   lessionBtn.forEach((btn) => btn.classList.remove("active"));
 };
 
-// Manage Spinner 
-const manageSpinner = (status)=> {
-    if(status == true){
-        document.getElementById('spinner').classList.remove('hidden')
-        document.getElementById('word-container').classList.add('hidden')
-    }else{
-       document.getElementById('spinner').classList.add('hidden')
-        document.getElementById('word-container').classList.remove('hidden') 
-    }
-}
+// Search Impliment
+document.getElementById("btn-search").addEventListener("click", () => {
+    removeActive()
+  const input = document.getElementById("input-search");
+  const searchValue = input.value.trim().toLowerCase();
+
+  fetch("https://openapi.programming-hero.com/api/words/all")
+    .then((res) => res.json())
+    .then((data) => {
+      const words = data.data;
+      const allWords = words.filter((word) =>
+        word.word.toLowerCase().includes(searchValue),
+      );
+      displayWord(allWords);
+    });
+});
+
+// Manage Spinner
+const manageSpinner = (status) => {
+  if (status == true) {
+    document.getElementById("spinner").classList.remove("hidden");
+    document.getElementById("word-container").classList.add("hidden");
+  } else {
+    document.getElementById("spinner").classList.add("hidden");
+    document.getElementById("word-container").classList.remove("hidden");
+  }
+};
 
 // Fetch Word
 const loadWordContainer = (id) => {
-    manageSpinner(true)
+  manageSpinner(true);
   const url = `https://openapi.programming-hero.com/api/level/${id}`;
   fetch(url)
     .then((res) => res.json())
@@ -62,6 +79,7 @@ const displayWord = (words) => {
           নেক্সট Lesson এ যান
         </h2>
       </div>`;
+    manageSpinner(false);
     return;
   }
   words.forEach((word) => {
@@ -81,22 +99,22 @@ const displayWord = (words) => {
       `;
     wordContainer.append(card);
   });
-  manageSpinner(false)
+  manageSpinner(false);
 };
 
 //fetch Words Details in Modal
 const loadWordDetails = async (id) => {
   const url = `https://openapi.programming-hero.com/api/word/${id}`;
-  const res = await fetch(url)
-  const details = await res.json()
-  displayLoadDetails(details.data)
+  const res = await fetch(url);
+  const details = await res.json();
+  displayLoadDetails(details.data);
 };
 
-// Display Details 
+// Display Details
 
-const displayLoadDetails = (word)=>{
-    const modalContainer = document.getElementById('modal-container')
-    modalContainer.innerHTML =`
+const displayLoadDetails = (word) => {
+  const modalContainer = document.getElementById("modal-container");
+  modalContainer.innerHTML = `
     <div class="">
             <h2 class="text-2xl font-bold">${word.word} (<i class="fa-solid fa-microphone-lines"></i>:${word.pronunciation})</h2>
           </div>
@@ -114,9 +132,9 @@ const displayLoadDetails = (word)=>{
              ${createElement(word.synonyms)}
             </div>
           </div>
-    `
-    document.getElementById('details_modal').showModal()
-}
+    `;
+  document.getElementById("details_modal").showModal();
+};
 // synonyms Array integration
 const createElement = (arr) => {
   const synonymElement = arr.map(
