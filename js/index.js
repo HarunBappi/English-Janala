@@ -5,6 +5,13 @@ const loadSession = () => {
       displayLession(data.data);
     });
 };
+// Pronounciation Speak
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-US"; // English
+  window.speechSynthesis.speak(utterance);
+}
+
 // Load All Lession
 const displayLession = (lessions) => {
   const levelContainer = document.getElementById("level-container");
@@ -93,7 +100,7 @@ const displayWord = (words) => {
           </div>
           <div class="flex justify-between items-center">
             <button onclick="loadWordDetails(${word.id})" class="btn bg-sky-100"><i class="fa-solid fa-circle-question text-xl"></i></button>
-            <button class="btn bg-sky-100"><i class="fa-solid fa-volume-high text-xl"></i></button>
+            <button onclick=pronounceWord('${word.word}') class="btn bg-sky-100"><i class="fa-solid fa-volume-high text-xl"></i></button>
           </div>
         </div>
       `;
