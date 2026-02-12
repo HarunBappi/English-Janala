@@ -6,7 +6,7 @@ An interactive vocabulary learning web application built with HTML, Tailwind CSS
 
 ## 🚀 Live Demo
 
-🔗 Live Site: https://your-live-link.com
+🔗 Live Site: https://harunbappi.github.io/English-Janala/
 
 ---
 
